@@ -1,0 +1,8 @@
+.main-wrapper-1 .section .section-header {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.custom-file-label::after {
+  content: "Cari";
+}
