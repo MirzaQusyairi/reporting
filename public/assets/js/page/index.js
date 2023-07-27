@@ -151,6 +151,9 @@ $(function () {
     previewImages(this, 'div.image-360-preview-div');
   });
 
+  $('#photo').on('change', function () {
+    bsCustomFileInput.init();
+  });
   // $(function () {
   //   bsCustomFileInput.init();
   // });
@@ -195,3 +198,5 @@ $(function () {
 //   swal('Your imaginary file is safe!');
 //   }
 // });
+
+

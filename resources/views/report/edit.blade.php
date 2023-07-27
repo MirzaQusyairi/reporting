@@ -47,13 +47,14 @@
                 @endforeach
               </div>
               <div class="custom-file">
-                <label class="custom-file-label @error('evidence') is-invalid @enderror" for="customFile">Pilih untuk merubah file saat ini</label>
+                <label class="custom-file-label @error('evidence') is-invalid @enderror" for="customFile">Ubah file</label>
                 <input type="file" id="evidence" name="evidence[]" class="custom-file-input @error('evidence') is-invalid @enderror" id="customFile" multiple>
                 @error('evidence')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
                 @enderror
+                <label for="" class="text-warning mx-1 my-1"><i class="fas fa-exclamation-triangle"></i> Unggah ulang semua dokumen jika ingin mengubah Bukti SPJ/ Pengeluaran</label>
                 <div id="fileList"></div>
               </div>
             </div>

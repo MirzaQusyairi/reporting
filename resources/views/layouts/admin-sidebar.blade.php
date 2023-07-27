@@ -10,10 +10,20 @@
 
       <li class="menu-header">MENU UTAMA</li>
       <li class="{{ Request::is('dashboard') ? 'active':'' }}"><a class="nav-link" href="/dashboard"><i class="fas fa-fire"></i> <span>Dasbor</span></a></li>
-      <li class="{{ Request::is('report*') ? 'active':'' }}"><a class="nav-link" href="/report"><i class="fas fa-file-alt"></i> <span>Pelaporan</span></a></li>
+      @if(auth()->user()->role == 'administrator')
+        <li class="dropdown {{ Request::is('report*') ? 'active':'' }}">
+          <a href="/report" class="nav-link has-dropdown"><i class="fas fa-file-alt"></i><span>Histori Ajuan</span></a>
+          <ul class="dropdown-menu">
+            <li class={{ Request::is('report') ? 'active':'' }}><a class="nav-link" href="/report">Berdasarkan Pelapor</a></li>
+            <li class={{ Request::is('report/filter/all') ? 'active':'' }}><a class="nav-link" href="/report/filter/all">Seluruh Data</a></li>
+          </ul>
+        </li>
+      @else
+        <li class="{{ Request::is('report*') ? 'active':'' }}"><a class="nav-link" href="/report"><i class="fas fa-file-alt"></i> <span>Histori Ajuan</span></a></li>
+      @endif
 
       @if (auth()->user()->role == 'administrator')
-        <li class="{{ Request::is('user*') ? 'active':'' }}"><a class="nav-link" href="/user"><i class="fas fa-user"></i> <span>Pengguna</span></a></li>
+        <li class="{{ Request::is('user*') ? 'active':'' }}"><a class="nav-link" href="/user"><i class="fas fa-user"></i> <span>Atur Pengguna</span></a></li>
       @endif
       
     </ul>

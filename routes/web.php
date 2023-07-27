@@ -35,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
     Route::get('/report', [ReportController::class, 'index'])->name('report.index');
+    Route::get('/report/filter/{status}', [ReportController::class, 'report'])->name('report.bystatus');
     Route::get('/report/create', [ReportController::class, 'create'])->name('report.create');
     Route::post('/report', [ReportController::class, 'store'])->name('report.store');
     Route::put('/report/review', [ReportController::class, 'review'])->name('report.review');

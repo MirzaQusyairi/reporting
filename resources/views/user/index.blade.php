@@ -22,6 +22,10 @@
                 </th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>No Pegawai</th>
+                <th>Jabatan</th>
+                <th>Telepon</th>
+                <th>Alamat</th>
                 <th>Tipe Pengguna</th>
                 <th>Status</th>
                 <th>Aksi</th>
@@ -33,7 +37,17 @@
 									<td>{{ $index+1 }}</td>                               
 									<td>{{ $dt->name }}</td>        
 									<td>{{ $dt->email }}</td>          
-									<td>{{ $dt->role }}</td>          
+									<td>{{ $dt->employee_id }}</td>          
+									<td>{{ $dt->position }}</td>          
+									<td>{{ $dt->phone }}</td>          
+									<td>{{ $dt->address }}</td>          
+									<td>
+                    @if ($dt->role == 'administrator')
+                      <div class="badge badge-primary">Sekretariat</div>
+                    @else
+                      <div class="badge badge-secondary">Anggota</div>
+                    @endif
+                  </td>          
 									<td>
                     @if($dt->status == 1)
                       <div class="badge badge-success">Aktif</div>

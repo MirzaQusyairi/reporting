@@ -51,11 +51,20 @@ class UserController extends Controller
                 'email' => 'required|email:dns|unique:users',
                 'password' => 'required|min:8',
                 //'password' => 'required|min:8|regex:/^(?=.[a-z])(?=.[A-Z])(?=.*\d).+$/',
+                'employee_id' => 'required',
+                'position' => 'required',
+                'phone' => 'required|numeric|digits_between:10,13',
+                'address' => 'required',
+                'photo' => $request->hasFile('photo') ? 'image|mimes:jpg,png,jpeg' : '',
                 'role' => 'required',
             ]);
 
             $validatedData['password'] = Hash::make($validatedData['password']);
             $validatedData['status'] = 1;
+
+            if ($request->file('photo')) {
+                $validatedData['photo'] = $request->file('photo')->store('public/images');
+            }
 
             User::create($validatedData);
 
@@ -105,6 +114,11 @@ class UserController extends Controller
                     'email:dns',
                     Rule::unique('users')->ignore($request->id)
                 ],
+                'employee_id' => 'required',
+                'position' => 'required',
+                'phone' => 'required|numeric|digits_between:10,13',
+                'address' => 'required',
+                'photo' => $request->hasFile('photo') ? 'image|mimes:jpg,png,jpeg' : '',
                 'role' => 'required',
             ]);
 
@@ -114,6 +128,10 @@ class UserController extends Controller
                 ]);
 
                 $validatedData['password'] = Hash::make($validatedData['password']);
+            }
+
+            if ($request->file('photo')) {
+                $validatedData['photo'] = $request->file('photo')->store('public/images');
             }
 
             User::where('id', $request->id)

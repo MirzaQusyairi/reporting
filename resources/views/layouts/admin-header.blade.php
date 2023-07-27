@@ -7,7 +7,11 @@
   </form>
   <ul class="navbar-nav navbar-right">
     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-      <img alt="image" src="{{ asset('stisla/assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
+      @if(auth()->user()->photo)
+        <img alt="image" src="{{ asset('storage/'.str_replace('public/', '', auth()->user()->photo)) }}" class="rounded-circle mr-1" style="max-height: 30px">
+      @else
+        <img alt="image" src="{{ asset('stisla/assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
+      @endif
       <div class="d-sm-none d-lg-inline-block">Halo, 
         @auth
           {{ auth()->user()->name }}

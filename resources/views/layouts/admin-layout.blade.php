@@ -101,11 +101,11 @@
   <script src="{{ asset('stisla/assets/js/scripts.js') }}"></script>
   <script src="{{ asset('stisla/assets/js/custom.js') }}"></script>
 
-  {{-- @if(auth()->user()->status == 0)
+  @if(auth()->user()->status == 0)
     <script>
       document.getElementById('logout-form').submit();
     </script>
-  @endif --}}
+  @endif
   
   @include('notification.modal_validation')
 </body>

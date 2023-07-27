@@ -22,6 +22,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'employee_id',
+        'position',
+        'phone',
+        'address',
+        'photo',
         'role',
         'status',
     ];
@@ -44,4 +49,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
 }

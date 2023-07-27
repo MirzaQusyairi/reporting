@@ -6,3 +6,25 @@
 .custom-file-label::after {
   content: "Cari";
 }
+
+.card.card-statistic-1 .card-header,
+.card.card-statistic-2 .card-header {
+  padding-top: 16px;
+}
+
+.card.card-statistic-1 .card-body {
+  font-size: 25px;
+}
+
+.card.card-statistic-1 .card-header h4,
+.card.card-statistic-2 .card-header h4 {
+  color: #4a5155;
+}
+
+.badge.report-status {
+  min-width: 101px;
+}
+
+.modal-create-user .form-group {
+  margin-bottom: 10px;
+}

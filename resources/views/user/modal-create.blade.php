@@ -7,9 +7,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="{{ route('user.store') }}" method="POST">
+      <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="modal-body">
+        <div class="modal-body modal-create-user">
           <div class="form-group">
             <label for="name">Nama</label>
             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" value="{{ old('name') }}">
@@ -45,11 +45,54 @@
             </div>
           </div>
           <div class="form-group">
+            <label for="employee_id">No Pegawai</label>
+            <input type="text" class="form-control @error('employee_id') is-invalid @enderror" name="employee_id" id="employee_id" value="{{ old('employee_id') }}">
+            @error('employee_id')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
+          </div>
+          <div class="form-group">
+            <label for="position">Jabatan</label>
+            <input type="text" class="form-control @error('position') is-invalid @enderror" name="position" id="position" value="{{ old('position') }}">
+            @error('position')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
+          </div>
+          <div class="form-group">
+            <label for="phone">Telepon</label>
+            <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" id="phone" value="{{ old('phone') }}">
+            @error('phone')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
+          </div>
+          <div class="form-group">
+            <label for="address">Alamat</label>
+            <input type="text" class="form-control @error('address') is-invalid @enderror" name="address" id="address" value="{{ old('address') }}">
+            @error('address')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
+          </div>
+          <div class="form-group">
+            <label >Foto</label>
+            <div class="custom-file">
+              <label class="custom-file-label" for="customFile">Pilih gambar</label>
+              <input type="file" id="photo" name="photo" class="custom-file-input" id="customFile">
+            </div>
+          </div>
+          <div class="form-group">
             <label for="role">Tipe Pengguna</label>
             <select name="role" id="role" class="form-control @error('role') is-invalid @enderror">
               <option value="">Pilih Tipe Pengguna</option>
-              <option value="administrator">Administrator</option>
-              <option value="user">User</option>
+              <option value="administrator">Sekretariat</option>
+              <option value="user">Anggota</option>
             </select>
             @error('role')
               <div class="invalid-feedback">

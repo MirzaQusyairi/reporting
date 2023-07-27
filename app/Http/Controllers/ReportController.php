@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\FileUpload;
 use App\Models\Report;
 use App\Models\TypeExpense;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
@@ -18,14 +19,79 @@ class ReportController extends Controller
      */
     public function index()
     {
+        // if (auth()->user()->role == 'administrator') {
+        //     $data = Report::orderby('created_at', 'DESC')->get();
+        // } else {
+        //     $data = Report::where('user_id', auth()->user()->id)->orderby('created_at', 'DESC')->get();
+        // }
+
+        // $users = User::all()->where('role', '!=', 'administrator');
+        // $data = [];
+
+        // foreach ($users as $user) {
+        //     $totalReport = Report::where('user_id', $user->id)->count();
+        //     $processReport = Report::where('user_id', $user->id)->where('status', 'process')->count();
+        //     $returnReport = Report::where('user_id', $user->id)->where('status', 'return')->count();
+        //     $acceptReport = Report::where('user_id', $user->id)->where('status', 'accept')->count();
+
+        //     $data[] = [
+        //         'user' => $user,
+        //         'processReport' => $processReport,
+        //         'returnReport' => $returnReport,
+        //         'acceptReport' => $acceptReport,
+        //         'totalReport' => $totalReport,
+        //     ];
+        // }
+
         if (auth()->user()->role == 'administrator') {
-            $data = Report::orderby('created_at', 'DESC')->get();
+            $data = User::where('role', '!=', 'administrator')
+                ->withCount('reports as totalReport')
+                ->withCount(['reports as processReport' => function ($query) {
+                    $query->where('status', 'process');
+                }])
+                ->withCount(['reports as returnReport' => function ($query) {
+                    $query->where('status', 'return');
+                }])
+                ->withCount(['reports as acceptReport' => function ($query) {
+                    $query->where('status', 'accept');
+                }])
+                ->get();
         } else {
             $data = Report::where('user_id', auth()->user()->id)->orderby('created_at', 'DESC')->get();
         }
 
-
         return view('report.index', compact('data'));
+    }
+
+    public function report($status)
+    {
+        if (auth()->user()->role == 'administrator') {
+            if ($status == 'all') {
+                $data = Report::orderby('created_at', 'DESC')->get();
+            } elseif ($status == 'process') {
+                $data = Report::where('status', $status)->orderby('created_at', 'DESC')->get();
+            } elseif ($status == 'return') {
+                $data = Report::where('status', $status)->orderby('created_at', 'DESC')->get();
+            } elseif ($status == 'accept') {
+                $data = Report::where('status', $status)->orderby('created_at', 'DESC')->get();
+            } else {
+                $data = Report::where('user_id', $status)->orderby('created_at', 'DESC')->get();
+            }
+        } else {
+            if ($status == 'all') {
+                $data = Report::where('user_id', auth()->user()->id)->orderby('created_at', 'DESC')->get();
+            } elseif ($status == 'process') {
+                $data = Report::where('user_id', auth()->user()->id)->where('status', $status)->orderby('created_at', 'DESC')->get();
+            } elseif ($status == 'return') {
+                $data = Report::where('user_id', auth()->user()->id)->where('status', $status)->orderby('created_at', 'DESC')->get();
+            } elseif ($status == 'accept') {
+                $data = Report::where('user_id', auth()->user()->id)->where('status', $status)->orderby('created_at', 'DESC')->get();
+            } else {
+                $data = Report::where('user_id', auth()->user()->id)->where('user_id', $status)->orderby('created_at', 'DESC')->get();
+            }
+        }
+
+        return view('report.report-filter', compact('data'));
     }
 
     /**
@@ -155,7 +221,7 @@ class ReportController extends Controller
         try {
             Report::where('id', $request->id)->update(array('info' => $request->info, 'status' => $request->status));
 
-            return redirect('/report')->with('success_message', 'Pelaporan dikembalikan!');
+            return redirect()->back()->with('success_message', 'Pelaporan dikembalikan!');
         } catch (ValidationException $e) {
             $errors = $e->errors();
             return redirect()->back()->withErrors($errors)->withInput()->with('error_modal_user_edit', $request->id);
