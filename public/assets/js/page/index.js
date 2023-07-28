@@ -72,9 +72,10 @@ $(window).resize(function () {
   var width = $(window).width();
   if (width < 768) {
     $('.btn-guide').removeClass('btn-warning');
+  } else if (width > 768) {
+    $('.btn-guide').addClass('btn-warning');
   }
-})
-  .resize();
+}).resize();
 
 // Set maxlength for identity number
 $('#identity_type').on('change', function () {
