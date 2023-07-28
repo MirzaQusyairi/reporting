@@ -57,17 +57,17 @@
                   </td>          
 									<td>
                     @if ($dt->status == 1)
-                      <a href="/user/status/{{ $dt->id }}" class="btn btn-success"><i class="fa fa-power-off"></i></a>
+                      <a href="/user/status/{{ $dt->id }}" class="btn btn-success btn-sm"><i class="fa fa-power-off"></i></a>
                     @else
-                      <a href="/user/status/{{ $dt->id }}" class="btn btn-danger"><i class="fa fa-power-off"></i></a>
+                      <a href="/user/status/{{ $dt->id }}" class="btn btn-danger btn-sm"><i class="fa fa-power-off"></i></a>
                     @endif
 
-                    <button class="btn btn-warning"  data-toggle="modal" data-target="#modal-edit-user-{{ $dt->id}}"><i class="fa fa-pen"></i></button>
+                    <button class="btn btn-warning btn-sm"  data-toggle="modal" data-target="#modal-edit-user-{{ $dt->id}}"><i class="fa fa-pen"></i></button>
 
                     <form id="delete-form" action="/user/{{ $dt->id }}" method="POST" class="d-inline">
                       @method('DELETE')
                       @csrf
-                      <button class="btn btn-danger btn-delete" onclick="return false"><i class="fa fa-trash"></i></button>
+                      <button class="btn btn-danger btn-sm btn-delete" onclick="return false"><i class="fa fa-trash"></i></button>
                     </form>
                   </td>  
                   

@@ -112,12 +112,12 @@
                         <button class="btn btn-warning" data-toggle="modal" data-target="#modal-review-{{ $dt->id}}"><i class="fas fa-clipboard-check"></i></button>
                         @include('report.modal-review')
                       @elseif($dt->status != 'accept')
-                        <a href="/report/{{ $dt->id }}/edit" class="btn btn-warning"><i class="fa fa-pen"></i></a>
+                        <a href="/report/{{ $dt->id }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pen"></i></a>
 
                         <form id="delete-form" action="/report/{{ $dt->id }}" method="POST" class="d-inline">
                           @method('DELETE')
                           @csrf
-                          <button class="btn btn-danger btn-delete" onclick="return false"><i class="fa fa-trash"></i></button>
+                          <button class="btn btn-danger btn-sm btn-delete" onclick="return false"><i class="fa fa-trash"></i></button>
                         </form>
                       @endif
                     </td>  

@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="#">SIFERNIK</a>
+      <a href="#"><img src="{{ asset('assets/img/logo_dprd_kepri.png') }}" alt="" style="width: 35px"> SIFERNIK</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
       <a href="#">SI</a>

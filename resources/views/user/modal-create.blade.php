@@ -84,7 +84,7 @@
             <label >Foto</label>
             <div class="custom-file">
               <label class="custom-file-label" for="customFile">Pilih gambar</label>
-              <input type="file" id="photo" name="photo" class="custom-file-input" id="customFile">
+              <input type="file" id="photo" name="photo" class="custom-file-input upload-photo" id="customFile">
             </div>
           </div>
           <div class="form-group">

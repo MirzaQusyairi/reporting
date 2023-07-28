@@ -25,6 +25,7 @@
                 </div>
               @enderror
             </div>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-guide"><i class="fas fa-info"></i> Lihat Panduan</button>
           </div>
           <div class="form-group row mb-4">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Detail Pengeluaran</label>
@@ -64,5 +65,25 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade modal-guide" id="modal-guide">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Panduan Pelaporan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+        <div class="modal-body">
+          <iframe src="{{ asset('assets/doc/PANDUAN-BUKTI-SPJ-PENGELUARAN.pdf') }}" width="100%" height="400"></iframe>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
 @endsection

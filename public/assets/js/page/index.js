@@ -1,14 +1,10 @@
 "use strict";
 
-$('.modal-edit-facility').appendTo("body")
-$('#modal-create-facility').appendTo("body")
-$('.modal-edit-type').appendTo("body")
-$('#modal-create-type').appendTo("body")
 $('.modal-edit-user').appendTo("body")
 $('#modal-create-user').appendTo("body")
-$('.modal-edit-reservation').appendTo("body")
 $('.modal-view-evidence').appendTo("body")
 $('.modal-review').appendTo("body")
+$('.modal-guide').appendTo("body")
 
 $('.btn-delete').on('click', function (e) {
   e.preventDefault();
@@ -151,7 +147,7 @@ $(function () {
     previewImages(this, 'div.image-360-preview-div');
   });
 
-  $('#photo').on('change', function () {
+  $('.upload-photo').on('change', function () {
     bsCustomFileInput.init();
   });
   // $(function () {
