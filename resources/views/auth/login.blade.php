@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>SIFERNIK | Masuk</title>
+  <title>SIPERNIK | Masuk</title>
 
   <!-- General CSS Files -->
   <link rel="icon" href="{{ asset('assets/img/favicon.ico') }}">
@@ -28,7 +28,10 @@
               <img src="{{ asset('assets/img/logo_dprd_kepri.png') }}" alt="logo" width="100" class="shadow-light rounded-circle">
             </div>
             <div class="card card-primary">
-              <div class="card-header"><h3 class="m-auto">SIFERNIK</h3></div>
+              <div class="card-header" style="display: grid">
+                <h3 class="m-auto">SIPERNIK</h3>
+                <p class="m-auto">Sistem Pertanggungjawaban secara Elektronik</p>
+              </div>
 
               <div class="card-body">
                 <form method="POST" action="{{ route('auth.authenticate') }}">
@@ -79,7 +82,7 @@
               </div>
             </div>
             <div class="simple-footer">
-              Copyright &copy; SIFERNIK {{ date('Y') }}
+              Copyright &copy; SIPERNIK {{ date('Y') }}
             </div>
           </div>
         </div>

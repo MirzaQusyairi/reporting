@@ -55,7 +55,7 @@
           </div>
         </div>
         <div class="simple-footer mt-5">
-          Copyright &copy; SIFERNIK {{ date('Y') }}
+          Copyright &copy; SIPERNIK {{ date('Y') }}
         </div>
       </div>
     </section>

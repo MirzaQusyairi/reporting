@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>SIFERNIK | @yield('page_name')</title>
+  <title>SIPERNIK | @yield('page_name')</title>
 
   <!-- General CSS Files -->
   <link rel="icon" href="{{ asset('assets/img/favicon.ico') }}">
@@ -48,7 +48,7 @@
             </div>
             <h1>@yield('page_name')</h1>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="#">SIFERNIK</a></div>
+              <div class="breadcrumb-item active"><a href="#">SIPERNIK</a></div>
               {{-- <div class="breadcrumb-item"><a href="#">Posts</a></div> --}}
               <div class="breadcrumb-item">@yield('page_name')</div>
             </div>

@@ -27,7 +27,7 @@
     <div class="alert alert-info alert-has-icon">
       <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
       <div class="alert-body">
-        <div class="alert-title">Aplikasi Sistem Informasi Pertanggungjawaban Elektronik (SIFERNIK)</div>
+        <div class="alert-title">Aplikasi Sistem Pertanggungjawaban secara Elektronik (SIPERNIK)</div>
         bertujuan untuk memberikan kemudahan dan kenyamanan bagi para pemangku kepentingan dalam mencatat, melacak, dan mengelola berbagai bentuk pertanggungjawaban secara digital.
       </div>
     </div>
