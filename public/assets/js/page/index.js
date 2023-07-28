@@ -67,6 +67,15 @@ function togglePasswordVisibility(ID, IconID) {
   }
 };
 
+$(window).resize(function () {
+  console.log('resize called');
+  var width = $(window).width();
+  if (width < 768) {
+    $('.btn-guide').removeClass('btn-warning');
+  }
+})
+  .resize();
+
 // Set maxlength for identity number
 $('#identity_type').on('change', function () {
   var value = $('#identity_type option:selected').val();
