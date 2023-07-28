@@ -8,7 +8,7 @@
 <div class="row">
   @if (Auth::user()->role != 'administrator')
     <div class="col-12 pb-3">
-      <a href="report/create" type="button" class="btn btn-primary btn-lg">Buat Pelaporan</a>
+      <a href="/report/create" type="button" class="btn btn-primary btn-lg">Buat Pelaporan</a>
     </div>
   @endif
   
