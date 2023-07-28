@@ -33,7 +33,7 @@
           <div class="form-group row mb-4">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Detail Pengeluaran</label>
             <div class="col-sm-12 col-md-7">
-              <textarea class="form-control" id="detail" name="detail" style="height: unset">{{$report->detail}}</textarea>
+              <textarea class="form-control @error('detail') is-invalid @enderror" id="detail" name="detail" style="height: unset">{{$report->detail}}</textarea>
               @error('detail')
                 <div class="invalid-feedback">
                   {{ $message }}

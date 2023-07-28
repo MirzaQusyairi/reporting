@@ -119,11 +119,14 @@ class ReportController extends Controller
             [
                 'type_id' => 'required',
                 'detail' => 'required',
-                'evidence' => 'required',
-                'evidence.*' => 'mimes:jpg,jpeg,png,pdf,docx'
+                'evidence' => 'required|mimes:jpg,jpeg,png,pdf,docx,xlsx',
+                // 'evidence.*' => 'mimes:jpg,jpeg,png,pdf,docx,xlsx'
             ],
             [
                 'type_id.required' => 'Jenis pengeluaran harus diisi',
+                'detail.required' => 'Detail pengeluaran harus diisi',
+                'evidence.required' => 'Bukti pengeluaran harus diisi',
+                'evidence.mimes' => 'Bukti pengeluaran harus berupa file jpg, jpeg, png, pdf, docx, xlsx'
             ]
         );
         $validatedData['user_id'] = auth()->user()->id;
@@ -185,6 +188,7 @@ class ReportController extends Controller
             ],
             [
                 'type_id.required' => 'Jenis pengeluaran harus diisi',
+                'detail.required' => 'Detail pengeluaran harus diisi',
             ]
         );
         $validatedData['status'] = 'process';
@@ -192,9 +196,14 @@ class ReportController extends Controller
         Report::where('id', $report->id)->update($validatedData);
 
         if ($request->hasfile('evidence')) {
-            $request->validate([
-                'evidence.*' => 'mimes:jpg,jpeg,png,pdf,docx',
-            ]);
+            $request->validate(
+                [
+                    'evidence' => 'mimes:jpg,jpeg,png,pdf,docx,xlsx',
+                ],
+                [
+                    'evidence.mimes' => 'Bukti pengeluaran harus berupa file jpg, jpeg, png, pdf, docx, xlsx'
+                ]
+            );
 
             $fileExist = FileUpload::where('report_id', $report->id)->get()->pluck('filepath');
             foreach ($fileExist as $file) {

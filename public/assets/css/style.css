@@ -33,6 +33,10 @@
   color: #fff !important;
 }
 
+.custom-file-label.is-invalid {
+  border-color: #dc3545;
+}
+
 @media only screen and (max-width: 600px) {
   .btn-guide {
     margin-left: 5% !important;
