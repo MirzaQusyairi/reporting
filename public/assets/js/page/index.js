@@ -11,8 +11,8 @@ $('.btn-delete').on('click', function (e) {
   let form = $(this).closest('form');
   let id = $(this).data('id');
   swal({
-    title: 'Yakin Menghapus Data Ini?',
-    text: "data yang sudah dihapus tidak dapat dikembalikan!",
+    title: 'Yakin Hapus Data Ini?',
+    text: "Data yang sudah dihapus tidak dapat dikembalikan!",
     icon: 'warning',
     buttons: true,
     dangerMode: true,

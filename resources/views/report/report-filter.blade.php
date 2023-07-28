@@ -23,7 +23,7 @@
                   #
                 </th>
                 <th>Tanggal Dibuat</th>
-                <th>Tanggal Diubah</th>
+                <th>Tanggal Diperbarui</th>
                 @if (Auth::user()->role == 'administrator')
                   <th>Pelapor</th>
                 @endif

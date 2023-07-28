@@ -187,6 +187,7 @@ class ReportController extends Controller
                 'type_id.required' => 'Jenis pengeluaran harus diisi',
             ]
         );
+        $validatedData['status'] = 'process';
 
         Report::where('id', $report->id)->update($validatedData);
 
