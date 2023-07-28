@@ -26,6 +26,9 @@
                 </div>
               @enderror
             </div>
+            <div>
+              <a class="btn-guide btn btn-warning" data-toggle="modal" data-target="#modal-guide"><i class="fas fa-info"></i> Lihat Panduan</a>
+            </div>
           </div>
           <div class="form-group row mb-4">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Detail Pengeluaran</label>
