@@ -23,11 +23,13 @@
     <section class="section">
       <div class="container mt-5">
         <div class="row">
-          <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-            <div class="login-brand">
-              <img src="{{ asset('assets/img/logo_dprd_kepri.png') }}" alt="logo" width="100" class="shadow-light rounded-circle">
-            </div>
-            <div class="card card-primary">
+          <div class="col-12 col-xl-6 align-items-center justify-content-center d-none d-lg-flex">
+            <img src="{{ asset('assets/img/bg_dprd_kepri.png') }}" alt="" style="width: 70%">
+          </div>
+          {{-- <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4"> --}}
+          <div class="col-12 col-xl-4">
+            
+            <div class="card card-primary mt-5">
               <div class="card-header" style="display: grid">
                 <h3 class="m-auto">SIPERNIK</h3>
                 <p class="m-auto">Sistem Pertanggungjawaban secara Elektronik</p>
@@ -57,12 +59,12 @@
                           <i class="fas fa-eye" id="passwordicon"></i>
                         </div>
                       </div>
+                      @error('password')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                      @enderror
                     </div>
-                    @error('password')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                    @enderror
                   </div>
 
                   <div class="form-group">
@@ -73,7 +75,7 @@
                   </div>
 
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                    <button type="submit" class="btn btn-green btn-lg btn-block" tabindex="4">
                       Masuk
                     </button>
                   </div>
@@ -81,6 +83,12 @@
 
               </div>
             </div>
+            <div class="login-brand">
+              <img src="{{ asset('assets/img/logo_prov_kepri.png') }}" alt="logo" width="60" class="">
+              <img src="{{ asset('assets/img/logo_dprd_kepri.png') }}" alt="logo" width="60" class="">
+              <img src="{{ asset('assets/img/logo_telkom_university.png') }}" alt="logo" width="50" class="">
+            </div>
+
             <div class="simple-footer">
               Copyright &copy; SIPERNIK {{ date('Y') }}
             </div>

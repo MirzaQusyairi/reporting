@@ -1,3 +1,13 @@
+.navbar-bg {
+  background-size: contain !important;
+  background: url('../img/bg_pattern_batik_up.jpg') repeat-x;
+}
+
+.main-footer {
+  background-size: contain !important;
+  background: url('../img/bg_pattern_batik.jpg') repeat-x;
+}
+
 .main-wrapper-1 .section .section-header {
   margin-left: 0px;
   margin-right: 0px;
@@ -35,6 +45,30 @@
 
 .custom-file-label.is-invalid {
   border-color: #dc3545;
+}
+
+.btn-green,
+.btn-green.disabled {
+  color: #fff;
+  box-shadow: 0 2px 6px #304b39;
+  background-color: #02471a;
+  border-color: #02471a;
+}
+
+.btn-green:hover {
+  background-color: #012b0f !important;
+}
+
+.main-sidebar .sidebar-menu li.active a {
+  color: #02471a;
+}
+
+.main-sidebar .sidebar-menu li ul.dropdown-menu li a:hover {
+  color: #02471a;
+}
+
+.card.card-primary {
+  border-top: 2px solid #02471a;
 }
 
 @media only screen and (max-width: 600px) {
