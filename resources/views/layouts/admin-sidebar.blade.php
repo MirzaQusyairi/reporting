@@ -21,10 +21,11 @@
         </li>
       @else
         <li class="{{ Request::is('report*') ? 'active':'' }}"><a class="nav-link" href="/report"><i class="fas fa-file-alt"></i> <span>Histori Ajuan</span></a></li>
+        <li class="{{ Request::is('profile*') ? 'active':'' }}"><a class="nav-link" href="/profile"><i class="fas fa-user"></i> <span>Profil</span></a></li>
       @endif
 
       @if (auth()->user()->role == 'administrator')
-        <li class="{{ Request::is('user*') ? 'active':'' }}"><a class="nav-link" href="/user"><i class="fas fa-user"></i> <span>Atur Pengguna</span></a></li>
+        <li class="{{ Request::is('user*') ? 'active':'' }}"><a class="nav-link" href="/user"><i class="fas fa-users"></i> <span>Atur Pengguna</span></a></li>
       @endif
       
     </ul>

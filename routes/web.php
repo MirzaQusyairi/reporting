@@ -26,6 +26,9 @@ Route::post('/login', [AuthController::class, 'authenticate'])->name('auth.authe
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
+    Route::put('/profile', [UserController::class, 'update_profile'])->name('user.update_profile');
+
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
     Route::post('/user', [UserController::class, 'store'])->name('user.store');
     Route::put('/user', [UserController::class, 'update'])->name('user.update');

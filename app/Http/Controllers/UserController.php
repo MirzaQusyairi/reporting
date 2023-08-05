@@ -27,6 +27,50 @@ class UserController extends Controller
         return view('user.index', compact('data'));
     }
 
+    public function profile()
+    {
+        $data = User::where('id', auth()->user()->id)->first();
+
+        return view('user.profile', compact('data'));
+    }
+
+    public function update_profile(Request $request, User $user)
+    {
+        try {
+            $validatedData = $request->validate([
+                'name' => 'required|min:3',
+                'email' => [
+                    'required',
+                    'email:dns',
+                    Rule::unique('users')->ignore($request->id)
+                ],
+                'phone' => 'required|numeric|digits_between:10,13',
+                'address' => 'required',
+                'photo' => $request->hasFile('photo') ? 'image|mimes:jpg,png,jpeg' : '',
+            ]);
+
+            if ($request->password) {
+                $validatedData = $request->validate([
+                    'password' => 'required|min:8',
+                ]);
+
+                $validatedData['password'] = Hash::make($validatedData['password']);
+            }
+
+            if ($request->file('photo')) {
+                $validatedData['photo'] = $request->file('photo')->store('public/images');
+            }
+
+            User::where('id', $request->id)
+                ->update($validatedData);
+
+            return redirect('/profile')->with('success_message', 'Profil berhasil diubah!');
+        } catch (ValidationException $e) {
+            $errors = $e->errors();
+            return redirect()->back()->withErrors($errors)->withInput();
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
